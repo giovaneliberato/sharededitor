@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="661.0" prefWidth="793.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sharededitor.EditorController">
+  <children>
+    <VBox prefHeight="631.0" prefWidth="206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0">
+      <children>
+        <TreeView prefHeight="631.0" prefWidth="202.0" VBox.vgrow="SOMETIMES" />
+      </children>
+    </VBox>
+    <HBox prefHeight="30.0" prefWidth="793.0" AnchorPane.bottomAnchor="631.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <VBox id="VBox" alignment="CENTER" spacing="5.0" HBox.hgrow="NEVER" />
+        <MenuBar prefHeight="30.0" prefWidth="793.0" HBox.hgrow="SOMETIMES">
+          <menus>
+            <Menu mnemonicParsing="false" text="Arquivo">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Criar documento" />
+                <MenuItem mnemonicParsing="false" text="Excluir documento" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" text="Sair" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Compartilhar documento" />
+            <Menu mnemonicParsing="false" text="Ajuda">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Sobre o editor" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </children>
+    </HBox>
+    <AnchorPane id="AnchorPane" prefHeight="201.0" prefWidth="507.0" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="112.0">
+      <children>
+        <HTMLEditor prefHeight="594.0" prefWidth="587.0" AnchorPane.bottomAnchor="-348.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="-66.0" AnchorPane.topAnchor="-45.0" />
+      </children>
+    </AnchorPane>
+    <ToolBar layoutY="30.0" prefHeight="37.0" prefWidth="587.0" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="0.0">
+      <items>
+        <TextField prefWidth="200.0" promptText="Arquivo sem nome" />
+      </items>
+    </ToolBar>
+  </children>
+</AnchorPane>
