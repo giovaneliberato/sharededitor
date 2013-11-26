@@ -1,4 +1,4 @@
-package sharededitor.model;
+package model;
 
 import java.sql.Date;
 

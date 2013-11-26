@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sharededitor.controller;
+
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,16 +10,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Aluno_Enfase
- */
+
 public class SharedEditor extends Application {
     
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Editor.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("view/Login.fxml"));
         
         Scene scene = new Scene(root);
         

@@ -1,4 +1,4 @@
-package sharededitor.model;
+package model;
 
 public class PerDocUsuario {
 

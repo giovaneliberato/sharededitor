@@ -7,8 +7,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="661.0" prefWidth="793.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sharededitor.EditorController">
-  <children>
+<AnchorPane id="AnchorPane" prefHeight="661.0" prefWidth="793.0" 
+            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" 
+            fx:controller="controller.EditorController">
+  
+    <children>
     <VBox prefHeight="631.0" prefWidth="206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0">
       <children>
         <TreeView prefHeight="631.0" prefWidth="202.0" VBox.vgrow="SOMETIMES" />

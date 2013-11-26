@@ -2,12 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sharededitor.controller;
+package controller;
 
-/**
- *
- * @author mandinha
- */
-public class LoginController {
+
+public class UsuarioController {
+    
     
 }

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.LoginController">
   <children>
     <AnchorPane id="AnchorPane" rotate="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
@@ -27,23 +27,27 @@
           <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" textAlignment="CENTER" VBox.vgrow="SOMETIMES">
               <font>
-                <Font name="Tahoma Bold" size="20.0" />
+                <Font size="20.0" />
               </font>
             </Text>
             <VBox prefHeight="179.0" prefWidth="200.0">
               <children>
-                <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0">
+                <HBox id="HBox" alignment="CENTER_LEFT" prefWidth="254.0" spacing="5.0">
                   <children>
-                    <VBox prefHeight="179.0" prefWidth="52.0">
+                    <VBox prefHeight="179.0" prefWidth="94.0">
                       <children>
-                        <Label text="Nome">
+                        <Label prefHeight="22.0" text="Nome">
                           <font>
-                            <Font name="Tahoma" size="15.0" fx:id="x1" />
+                            <Font size="15.0" />
                           </font>
                         </Label>
-                        <Label font="$x1" text="Login" />
-                        <Label font="$x1" text="Senha" />
-                        <Label font="$x1" text="Email" />
+                        <Label prefHeight="23.28125" prefWidth="64.0" text="Login">
+                          <font>
+                            <Font size="13.0" fx:id="x1" />
+                          </font>
+                        </Label>
+                        <Label font="$x1" prefHeight="23.28125" text="Senha" />
+                        <Label font="$x1" prefHeight="23.28125" text="Email" />
                       </children>
                       <padding>
                         <Insets top="10.0" fx:id="x2" />
@@ -51,11 +55,11 @@
                     </VBox>
                     <VBox padding="$x2" prefHeight="179.0" prefWidth="160.912109375">
                       <children>
-                        <TextField prefWidth="200.0" />
-                        <TextField prefWidth="200.0" />
-                        <PasswordField prefWidth="200.0" />
-                        <TextField prefWidth="200.0" />
-                        <Button mnemonicParsing="false" text="Enviar" />
+                        <TextField id="name" fx:id="nomeField" prefWidth="200.0" />
+                        <TextField id="login" fx:id="loginField" prefWidth="200.0" />
+                        <PasswordField id="senha" fx:id="senhaField" prefWidth="200.0" />
+                        <TextField fx:id="emailField" prefWidth="200.0" />
+                        <Button mnemonicParsing="false" onAction="#cadastrarUsuario" text="Enviar" />
                       </children>
                     </VBox>
                   </children>
@@ -64,9 +68,9 @@
             </VBox>
           </children>
         </VBox>
-        <Text layoutX="107.0" layoutY="145.0" scaleX="1.0090151469309347" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="paperless office">
+        <Text layoutX="61.0" layoutY="145.0" scaleX="1.0090151469309347" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="paperless office">
           <font>
-            <Font name="Baskerville Old Face" size="50.0" />
+            <Font size="50.0" />
           </font>
         </Text>
         <HBox alignment="CENTER_RIGHT" layoutY="0.0" prefHeight="55.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

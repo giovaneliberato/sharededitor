@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package sharededitor.controller;
+package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +15,7 @@ import javafx.scene.control.Label;
  *
  * @author Aluno_Enfase
  */
-public class DocumentoController implements Initializable {
+public class EditorController implements Initializable {
     
     @FXML
     private Label label;

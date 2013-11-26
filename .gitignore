@@ -9,3 +9,5 @@
 /SharedEditor/nbproject/private/
 /SharedEditor/build/
 nbproject
+/src/sharededitor/build/
+/src/sharededitor/dist/

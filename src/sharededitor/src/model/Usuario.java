@@ -1,5 +1,10 @@
 
-package sharededitor.model;
+package model;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Usuario {
     
@@ -38,7 +43,13 @@ public class Usuario {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha;
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(senha.getBytes());
+            this.senha = senha;
+        } catch (NoSuchAlgorithmException ex) {
+            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public String getEmail() {
