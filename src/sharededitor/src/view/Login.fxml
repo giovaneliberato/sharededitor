@@ -14,83 +14,114 @@
   <children>
     <AnchorPane id="AnchorPane" rotate="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <HBox id="HBox" alignment="CENTER" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <HBox id="HBox" alignment="CENTER" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
           <children>
-            <ImageView fitHeight="564.0" fitWidth="752.0000226770936" focusTraversable="false" pickOnBounds="true" preserveRatio="true" rotate="0.0" HBox.hgrow="SOMETIMES">
+            <ImageView fitHeight="564.0" fitWidth="752.0000226770936" focusTraversable="false" pickOnBounds="true" preserveRatio="true" rotate="0.0" HBox.hgrow="ALWAYS">
               <image>
-                <Image url="@inicial.png" />
+                <Image url="@bg_1.png" />
               </image>
+              <HBox.margin>
+                <Insets />
+              </HBox.margin>
             </ImageView>
           </children>
         </HBox>
-        <VBox alignment="TOP_CENTER" layoutX="489.0" layoutY="254.0" prefHeight="240.0" prefWidth="200.0">
+        <VBox alignment="TOP_CENTER" layoutX="376.0" layoutY="259.0" prefHeight="240.0" prefWidth="385.0">
           <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" textAlignment="CENTER" VBox.vgrow="SOMETIMES">
+            <Text scaleX="1.188193672620599" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastre-se" textAlignment="CENTER" VBox.vgrow="SOMETIMES">
               <font>
                 <Font size="20.0" />
               </font>
             </Text>
-            <VBox prefHeight="179.0" prefWidth="200.0">
+            <VBox prefHeight="143.0" prefWidth="403.0">
               <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                    <Label text="Nome">
+                      <font>
+                        <Font size="16.0" fx:id="x1" />
+                      </font>
+                      <labelFor>
+                        <TextField id="name" fx:id="nomeField" prefWidth="190.451171875" />
+                      </labelFor>
+                    </Label>
+                    <fx:reference source="nomeField" />
+                    <Label fx:id="nomeError" text="" textFill="RED" />
+                  </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                    <Label font="$x1" text="Login">
+                      <labelFor>
+                        <TextField id="name" prefWidth="200.0" />
+                      </labelFor>
+                    </Label>
+                    <TextField id="login" fx:id="loginField" prefWidth="200.0" />
+                    <Label id="nomeError" fx:id="loginError" text="" textFill="RED" />
+                  </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                    <Label font="$x1" text="Senha (Min 6)">
+                      <labelFor>
+                        <TextField id="name" prefWidth="200.0" />
+                      </labelFor>
+                    </Label>
+                    <PasswordField id="senha" fx:id="senhaField" prefWidth="132.0" />
+                    <Label id="nomeError" fx:id="senhaError" text="" textFill="RED" />
+                  </children>
+                </HBox>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                  <children>
+                    <Label font="$x1" text="Email">
+                      <labelFor>
+                        <TextField id="name" prefWidth="200.0" />
+                      </labelFor>
+                    </Label>
+                    <TextField fx:id="emailField" prefWidth="200.0" />
+                    <Label id="nomeError" fx:id="emailError" text="" textFill="RED" />
+                  </children>
+                </HBox>
                 <HBox id="HBox" alignment="CENTER_LEFT" prefWidth="254.0" spacing="5.0">
                   <children>
-                    <VBox prefHeight="179.0" prefWidth="94.0">
-                      <children>
-                        <Label prefHeight="22.0" text="Nome">
-                          <font>
-                            <Font size="15.0" />
-                          </font>
-                        </Label>
-                        <Label prefHeight="23.28125" prefWidth="64.0" text="Login">
-                          <font>
-                            <Font size="13.0" fx:id="x1" />
-                          </font>
-                        </Label>
-                        <Label font="$x1" prefHeight="23.28125" text="Senha" />
-                        <Label font="$x1" prefHeight="23.28125" text="Email" />
-                      </children>
-                      <padding>
-                        <Insets top="10.0" fx:id="x2" />
-                      </padding>
-                    </VBox>
-                    <VBox padding="$x2" prefHeight="179.0" prefWidth="160.912109375">
-                      <children>
-                        <TextField id="name" fx:id="nomeField" prefWidth="200.0" />
-                        <TextField id="login" fx:id="loginField" prefWidth="200.0" />
-                        <PasswordField id="senha" fx:id="senhaField" prefWidth="200.0" />
-                        <TextField fx:id="emailField" prefWidth="200.0" />
-                        <Button mnemonicParsing="false" onAction="#cadastrarUsuario" text="Enviar" />
-                      </children>
-                    </VBox>
+                    <Button mnemonicParsing="false" onAction="#cadastrarUsuario" text="Enviar" />
                   </children>
                 </HBox>
               </children>
             </VBox>
           </children>
         </VBox>
-        <Text layoutX="61.0" layoutY="145.0" scaleX="1.0090151469309347" scaleY="1.0" strokeType="OUTSIDE" strokeWidth="0.0" text="paperless office">
-          <font>
-            <Font size="50.0" />
-          </font>
-        </Text>
-        <HBox alignment="CENTER_RIGHT" layoutY="0.0" prefHeight="55.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <VBox id="VBox" alignment="CENTER" layoutX="150.0" layoutY="25.0" prefHeight="39.0" prefWidth="577.0" spacing="5.0">
           <children>
-            <TextField alignment="TOP_LEFT" disable="false" editable="true" prefWidth="200.0" promptText="login">
-              <effect>
-                <Glow level="0.41949685534591197" />
-              </effect>
-              <HBox.margin>
-                <Insets right="10.0" fx:id="x3" />
-              </HBox.margin>
-            </TextField>
-            <PasswordField prefWidth="200.0" promptText="senha" text="" HBox.margin="$x3" />
-            <Button blendMode="SRC_OVER" cache="false" mnemonicParsing="false" text="Entrar" textAlignment="LEFT" HBox.hgrow="SOMETIMES">
-              <HBox.margin>
-                <Insets right="20.0" />
-              </HBox.margin>
-            </Button>
+            <HBox alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="600.0">
+              <children>
+                <TextField fx:id="loginFormField" alignment="TOP_LEFT" disable="false" editable="true" prefWidth="200.0" promptText="login">
+                  <effect>
+                    <Glow level="0.41949685534591197" />
+                  </effect>
+                  <HBox.margin>
+                    <Insets right="10.0" fx:id="x3" />
+                  </HBox.margin>
+                </TextField>
+                <PasswordField fx:id="senhaFormField" prefWidth="200.0" promptText="senha" text="" HBox.margin="$x3" />
+                <Button blendMode="SRC_OVER" cache="false" mnemonicParsing="false" onAction="#logar" text="Entrar" textAlignment="LEFT" HBox.hgrow="SOMETIMES">
+                  <HBox.margin>
+                    <Insets right="20.0" />
+                  </HBox.margin>
+                </Button>
+              </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="55.0" prefWidth="600.0">
+              <children>
+                <Label fx:id="loginFormError" prefWidth="503.0" text="" textFill="WHITE">
+                  <font>
+                    <Font size="18.0" />
+                  </font>
+                </Label>
+              </children>
+            </HBox>
           </children>
-        </HBox>
+        </VBox>
       </children>
     </AnchorPane>
   </children>

@@ -2,10 +2,12 @@
 package model;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import utils.Security;
 
 public class Usuario {
     
@@ -24,6 +26,16 @@ public class Usuario {
         
         return json;
     }
+    
+     public static Usuario toObj(DBObject json) {
+         Usuario u = new Usuario();
+         u.setNome((String) json.get("nome"));
+         u.setLogin((String) json.get("login"));
+         u.setSenha((String) json.get("senha"));
+         u.setEmail((String) json.get("email"));
+         
+         return u;
+     }
     
     public int getId() {
         return id;
@@ -54,13 +66,7 @@ public class Usuario {
     }
 
     public void setSenha(String senha) {
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(senha.getBytes());
-            this.senha = senha;
-        } catch (NoSuchAlgorithmException ex) {
-            Logger.getLogger(Usuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.senha = senha;
     }
 
     public String getEmail() {
@@ -70,8 +76,6 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    public static boolean validarUsuario(Usuario u) { //talvez nao precise
-        return true;
-    }
+
+
 }
