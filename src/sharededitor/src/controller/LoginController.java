@@ -4,10 +4,12 @@
  */
 package controller;
 
+import db.ConnectionFactory;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.Usuario;
+import model.UsuarioDAO;
 
 public class LoginController {
     @FXML
@@ -36,7 +38,7 @@ public class LoginController {
         user.setSenha(senha);
         user.setEmail(email);
         
-        System.out.println(user.getSenha());
+        UsuarioDAO.salvarUsuario(user);
     }
     
 }

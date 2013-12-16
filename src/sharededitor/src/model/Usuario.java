@@ -1,6 +1,7 @@
 
 package model;
 
+import com.mongodb.BasicDBObject;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.logging.Level;
@@ -14,6 +15,16 @@ public class Usuario {
     private String senha;
     private String email;
 
+    public BasicDBObject toJSON(){
+        BasicDBObject json = new BasicDBObject();
+        json.append("nome", this.getNome());
+        json.append("login", this.getLogin());
+        json.append("senha", this.getSenha());
+        json.append("email", this.getEmail());
+        
+        return json;
+    }
+    
     public int getId() {
         return id;
     }
