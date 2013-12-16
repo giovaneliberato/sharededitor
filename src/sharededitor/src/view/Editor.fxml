@@ -7,14 +7,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="661.0" prefWidth="793.0" 
-            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" 
-            fx:controller="controller.EditorController">
-  
-    <children>
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="661.0" prefWidth="793.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.EditorController">
+  <children>
     <VBox prefHeight="631.0" prefWidth="206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0">
       <children>
-        <TreeView prefHeight="631.0" prefWidth="202.0" VBox.vgrow="SOMETIMES" />
+        <TreeView fx:id="filesTree" prefHeight="631.0" prefWidth="202.0" VBox.vgrow="SOMETIMES" />
       </children>
     </VBox>
     <HBox prefHeight="30.0" prefWidth="793.0" AnchorPane.bottomAnchor="631.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -25,6 +22,7 @@
             <Menu mnemonicParsing="false" text="Arquivo">
               <items>
                 <MenuItem mnemonicParsing="false" text="Criar documento" />
+                <MenuItem mnemonicParsing="false" onAction="#salvarDocumento" text="Salvar documento" />
                 <MenuItem mnemonicParsing="false" text="Excluir documento" />
                 <SeparatorMenuItem mnemonicParsing="false" />
                 <MenuItem mnemonicParsing="false" text="Sair" />
@@ -42,12 +40,12 @@
     </HBox>
     <AnchorPane id="AnchorPane" prefHeight="201.0" prefWidth="507.0" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="112.0">
       <children>
-        <HTMLEditor prefHeight="594.0" prefWidth="587.0" AnchorPane.bottomAnchor="-348.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="-66.0" AnchorPane.topAnchor="-45.0" />
+        <HTMLEditor id="texto" fx:id="editor" prefHeight="594.0" prefWidth="587.0" AnchorPane.bottomAnchor="-348.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="-66.0" AnchorPane.topAnchor="-45.0" />
       </children>
     </AnchorPane>
     <ToolBar layoutY="30.0" prefHeight="37.0" prefWidth="587.0" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="0.0">
       <items>
-        <TextField prefWidth="200.0" promptText="Arquivo sem nome" />
+        <TextField id="textName" fx:id="nome" prefWidth="200.0" promptText="Arquivo sem nome" />
       </items>
     </ToolBar>
   </children>
