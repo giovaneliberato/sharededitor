@@ -11,6 +11,7 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
+import controller.LoggedUser;
 import db.ConnectionFactory;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,19 @@ public class DocumentoDAO {
         
         return null;
     }
+    
+    public static List<Documento> buscarTodos(){
+        List<Documento> achados = new ArrayList<>();
+        DB db = ConnectionFactory.create();
+        DBCollection coll = db.getCollection("documentos");
+        DBCursor resultado = coll.find();
+        
+        while (resultado.hasNext()){
+            achados.add(Documento.toObj(resultado.next()));
+        }
+        
+        return achados;
+    }
 
     public static void removerPorNome(String nomeTexto) {
         DB db = ConnectionFactory.create();
@@ -76,6 +90,25 @@ public class DocumentoDAO {
         }
         
         return documentos;
+    }
+    
+    
+    public static Documento buscarCompartilhadoPorNome(String nome, String login){
+        DB db = ConnectionFactory.create();
+        DBCollection coll = db.getCollection("documentos");
+        DBObject query = new BasicDBObject("compartilhados.nome", login).append("nome", nome);
+        DBCursor resultado = coll.find(query);
+        
+        return Documento.toObj(resultado.next());
+        
+    }
+    
+    public static void atualizarDocumento(Documento d){
+        Documento old = buscarPorNome(d.getNome());
+        
+        DB db = ConnectionFactory.create();
+        DBCollection coll = db.getCollection("documentos");
+        coll.update(old.toJSON(), d.toJSON());
     }
     
     

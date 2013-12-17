@@ -4,6 +4,7 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import java.util.ArrayList;
 import java.util.Date;
+import org.bson.types.ObjectId;
 
 public class Documento {
     
@@ -12,6 +13,7 @@ public class Documento {
     private String texto;
     private ArrayList compartilhados = new ArrayList();
     private boolean editavel = true;
+    private ObjectId id;
 
     public BasicDBObject toJSON(){
         BasicDBObject json = new BasicDBObject();
@@ -20,6 +22,7 @@ public class Documento {
         json.append("texto", texto);
         json.append("compartilhados", compartilhados);
         json.append("editavel", editavel);
+        json.append("_id", id);
         return json;
     }
     
@@ -30,6 +33,7 @@ public class Documento {
         doc.setTexto((String) json.get("texto"));
         doc.setCompartilhados((ArrayList) json.get("compartilhados"));
         doc.setEditavel((boolean) json.get("editavel"));
+        doc.setId((ObjectId) json.get("_id"));
         
         return doc;
     } 
@@ -58,7 +62,7 @@ public class Documento {
         this.texto = text;
     }
 
-    public ArrayList getCompartilhados() {
+    public ArrayList<BasicDBObject> getCompartilhados() {
         return compartilhados;
     }
 
@@ -72,6 +76,10 @@ public class Documento {
     
     public boolean isEditavel(){
         return editavel;
+    }
+    
+    public void setId(ObjectId id){
+        this.id = id;
     }
 
     

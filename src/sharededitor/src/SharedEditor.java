@@ -4,11 +4,14 @@
  */
 
 
+import java.util.List;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Documento;
+import model.DocumentoDAO;
 
 
 public class SharedEditor extends Application {
@@ -24,6 +27,16 @@ public class SharedEditor extends Application {
         stage.show();
     }
 
+    @Override
+    public void stop() throws Exception{
+        List<Documento> docs = DocumentoDAO.buscarTodos();
+        for(Documento d: docs){
+            Documento novo = Documento.toObj(d.toJSON());
+            novo.setEditavel(true);
+            DocumentoDAO.atualizarDocumento(novo);
+        }
+    }
+    
     /**
      * The main() method is ignored in correctly deployed JavaFX application.
      * main() serves only as fallback in case the application can not be

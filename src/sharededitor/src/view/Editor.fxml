@@ -6,17 +6,18 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="661.0" prefWidth="793.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.EditorController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" minHeight="658.0" minWidth="868.0001831054688" prefHeight="658.0" prefWidth="868.0001831054688" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.EditorController">
   <children>
     <VBox prefHeight="631.0" prefWidth="206.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="30.0">
       <children>
         <TreeView fx:id="filesTree" prefHeight="631.0" prefWidth="202.0" VBox.vgrow="SOMETIMES" />
       </children>
     </VBox>
-    <HBox prefHeight="30.0" prefWidth="793.0" AnchorPane.bottomAnchor="631.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <HBox minHeight="22.0" prefHeight="30.0" prefWidth="868.0001831054688" AnchorPane.bottomAnchor="628.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
         <MenuBar prefHeight="30.0" prefWidth="793.0" HBox.hgrow="SOMETIMES">
           <menus>
@@ -32,18 +33,22 @@
             </Menu>
           </menus>
         </MenuBar>
-        <MenuButton mnemonicParsing="false" text="Compartilhar texto">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Action 2" />
-          </items>
-        </MenuButton>
       </children>
     </HBox>
-    <AnchorPane id="AnchorPane" prefHeight="201.0" prefWidth="507.0" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="112.0">
+    <AnchorPane id="AnchorPane" fx:id="editorReadOnly" prefHeight="201.0" prefWidth="507.0" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="112.0">
       <children>
         <HTMLEditor id="texto" fx:id="editor" prefHeight="594.0" prefWidth="587.0" AnchorPane.bottomAnchor="-348.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="-66.0" AnchorPane.topAnchor="-45.0" />
-        <TitledPane fx:id="compartilharPopUp" animated="false" layoutX="40.0" layoutY="101.0" prefHeight="161.0" prefWidth="304.0" text="Compartilhar texto">
+        <TitledPane id="erroPopPup" fx:id="erroPopUp" animated="false" layoutX="51.0" layoutY="86.0" prefHeight="120.0" prefWidth="267.0" text="Erro" visible="false">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="70.0" prefWidth="319.0">
+              <children>
+                <Text layoutX="7.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nao e possivel acessar este texto no momento" />
+                <Button layoutX="140.0" layoutY="59.0" mnemonicParsing="false" onAction="#cancelarPopUp" text="Ok" />
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
+        <TitledPane fx:id="compartilharPopUp" animated="false" layoutX="40.0" layoutY="101.0" prefHeight="161.0" prefWidth="304.0" text="Compartilhar texto" visible="false">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="153.0" prefWidth="346.0">
               <children>
@@ -72,16 +77,6 @@
                 </ComboBox>
                 <Button layoutX="225.0" layoutY="100.0" mnemonicParsing="false" onAction="#confirmarCompartilhar" text="Compartilhar" underline="false" />
                 <Button layoutX="31.0" layoutY="100.0" mnemonicParsing="false" onAction="#cancelarPopUp" text="Cancelar" />
-                <TitledPane id="erroPopPup" fx:id="erroPopUp" animated="false" layoutX="14.0" layoutY="0.0" prefHeight="120.0" prefWidth="267.0" text="Erro">
-                  <content>
-                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="70.0" prefWidth="319.0">
-                      <children>
-                        <Text layoutX="7.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nao e possivel acessar este texto no momento" />
-                        <Button layoutX="140.0" layoutY="59.0" mnemonicParsing="false" onAction="#cancelarPopUp" text="Ok" />
-                      </children>
-                    </AnchorPane>
-                  </content>
-                </TitledPane>
               </children>
             </AnchorPane>
           </content>
@@ -90,7 +85,7 @@
     </AnchorPane>
     <ToolBar layoutY="30.0" prefHeight="37.0" prefWidth="587.0" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="0.0">
       <items>
-        <TextField id="textName" fx:id="nome" prefWidth="200.0" promptText="Arquivo sem nome" />
+        <TextField id="textName" fx:id="nome" prefWidth="200.0" promptText="Arquivo sem nome" visible="true" />
       </items>
     </ToolBar>
   </children>
