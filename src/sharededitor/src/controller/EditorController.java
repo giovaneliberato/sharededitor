@@ -143,6 +143,8 @@ public class EditorController implements Initializable{
         inicializarTreeView();
         compartilharPopUp.setVisible(false);
         erroPopUp.setVisible(false);
+        editor.setDisable(true);
+        nome.setDisable(true);
     }
     
     
