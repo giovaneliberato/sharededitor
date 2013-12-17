@@ -4,6 +4,7 @@
  */
 
 
+import controller.LoggedUser;
 import java.util.List;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -29,7 +30,8 @@ public class SharedEditor extends Application {
 
     @Override
     public void stop() throws Exception{
-        List<Documento> docs = DocumentoDAO.buscarTodos();
+        String logado = LoggedUser.getInstance().getLoggedUser().getLogin();
+        List<Documento> docs = DocumentoDAO.buscarPorUsuario(logado);
         for(Documento d: docs){
             Documento novo = Documento.toObj(d.toJSON());
             novo.setEditavel(true);
