@@ -2,9 +2,11 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
 <AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="661.0" prefWidth="793.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="controller.EditorController">
@@ -22,24 +24,68 @@
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#criarNovoDocumento" text="Criar documento" />
                 <MenuItem mnemonicParsing="false" onAction="#salvarDocumento" text="Salvar documento" />
+                <MenuItem mnemonicParsing="false" onAction="#compartilharDocumento" text="Compartilhar documento" />
                 <MenuItem mnemonicParsing="false" onAction="#excluirDocumento" text="Excluir documento" />
                 <SeparatorMenuItem mnemonicParsing="false" />
                 <MenuItem mnemonicParsing="false" onAction="#deslogar" text="Sair" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Compartilhar documento" />
-            <Menu mnemonicParsing="false" text="Ajuda">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Sobre o editor" />
-              </items>
-            </Menu>
           </menus>
         </MenuBar>
+        <MenuButton mnemonicParsing="false" text="Compartilhar texto">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+          </items>
+        </MenuButton>
       </children>
     </HBox>
     <AnchorPane id="AnchorPane" prefHeight="201.0" prefWidth="507.0" AnchorPane.bottomAnchor="348.0" AnchorPane.leftAnchor="220.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="112.0">
       <children>
         <HTMLEditor id="texto" fx:id="editor" prefHeight="594.0" prefWidth="587.0" AnchorPane.bottomAnchor="-348.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="-66.0" AnchorPane.topAnchor="-45.0" />
+        <TitledPane fx:id="compartilharPopUp" animated="false" layoutX="40.0" layoutY="101.0" prefHeight="161.0" prefWidth="304.0" text="Compartilhar texto">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="153.0" prefWidth="346.0">
+              <children>
+                <HBox id="HBox" alignment="CENTER" layoutX="14.0" layoutY="29.0" spacing="5.0">
+                  <children>
+                    <Label text="Login do usuario">
+                      <font>
+                        <Font size="16.0" fx:id="x1" />
+                      </font>
+                    </Label>
+                    <TextField fx:id="compartilharLogin" prefWidth="181.0" />
+                  </children>
+                </HBox>
+                <HBox id="HBox" alignment="CENTER" layoutX="14.0" layoutY="59.0" spacing="5.0">
+                  <children>
+                    <Label font="$x1" text="Permissao" />
+                  </children>
+                </HBox>
+                <ComboBox fx:id="compartilharPerm" layoutX="152.0" layoutY="59.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Leitura" />
+                      <String fx:value="Leitura e escrita" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+                <Button layoutX="225.0" layoutY="100.0" mnemonicParsing="false" onAction="#confirmarCompartilhar" text="Compartilhar" underline="false" />
+                <Button layoutX="31.0" layoutY="100.0" mnemonicParsing="false" onAction="#cancelarPopUp" text="Cancelar" />
+                <TitledPane id="erroPopPup" fx:id="erroPopUp" animated="false" layoutX="14.0" layoutY="0.0" prefHeight="120.0" prefWidth="267.0" text="Erro">
+                  <content>
+                    <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="70.0" prefWidth="319.0">
+                      <children>
+                        <Text layoutX="7.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nao e possivel acessar este texto no momento" />
+                        <Button layoutX="140.0" layoutY="59.0" mnemonicParsing="false" onAction="#cancelarPopUp" text="Ok" />
+                      </children>
+                    </AnchorPane>
+                  </content>
+                </TitledPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
       </children>
     </AnchorPane>
     <ToolBar layoutY="30.0" prefHeight="37.0" prefWidth="587.0" AnchorPane.leftAnchor="206.0" AnchorPane.rightAnchor="0.0">

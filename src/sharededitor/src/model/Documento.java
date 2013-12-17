@@ -2,16 +2,16 @@ package model;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
+import java.util.ArrayList;
 import java.util.Date;
-import org.bson.types.BasicBSONList;
 
 public class Documento {
     
     private String nome;
     private String owner;
     private String texto;
-    private BasicBSONList compartilhados;
-    private Date ultimaAlteracao;
+    private ArrayList compartilhados = new ArrayList();
+    private boolean editavel = true;
 
     public BasicDBObject toJSON(){
         BasicDBObject json = new BasicDBObject();
@@ -19,7 +19,7 @@ public class Documento {
         json.append("owner", owner);
         json.append("texto", texto);
         json.append("compartilhados", compartilhados);
-        json.append("ultimaAlteracao", ultimaAlteracao);
+        json.append("editavel", editavel);
         return json;
     }
     
@@ -28,8 +28,8 @@ public class Documento {
         doc.setNome((String) json.get("nome"));
         doc.setOwner((String) json.get("owner"));
         doc.setTexto((String) json.get("texto"));
-        doc.setCompartilhados((BasicBSONList) json.get("compartilhados"));
-        doc.setUltimaAlteracao((Date) json.get("ultimaAlteracao"));
+        doc.setCompartilhados((ArrayList) json.get("compartilhados"));
+        doc.setEditavel((boolean) json.get("editavel"));
         
         return doc;
     } 
@@ -58,21 +58,22 @@ public class Documento {
         this.texto = text;
     }
 
-    public BasicBSONList getCompartilhados() {
+    public ArrayList getCompartilhados() {
         return compartilhados;
     }
 
-    public void setCompartilhados(BasicBSONList compartilhados) {
+    public void setCompartilhados(ArrayList compartilhados) {
         this.compartilhados = compartilhados;
     }
 
-    public Date getUltimaAlteracao() {
-        return ultimaAlteracao;
+    public void setEditavel(boolean editavel) {
+        this.editavel = editavel;
+    }
+    
+    public boolean isEditavel(){
+        return editavel;
     }
 
-    public void setUltimaAlteracao(Date ultimaAlteracao) {
-        this.ultimaAlteracao = ultimaAlteracao;
-    }
     
     
 }

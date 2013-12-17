@@ -62,6 +62,21 @@ public class DocumentoDAO {
         DBObject resultado = coll.findOne(query);
         coll.remove(resultado);
     }
+
+    public static List<Documento> buscarCompartilhadosPorUsuario(String login) {
+        List<Documento> documentos = new ArrayList<>();
+        
+        DB db = ConnectionFactory.create();
+        DBCollection coll = db.getCollection("documentos");
+        DBObject query = new BasicDBObject("compartilhados.nome", login);
+        DBCursor resultado = coll.find(query);
+        
+        while(resultado.hasNext()){
+            documentos.add(Documento.toObj(resultado.next()));
+        }
+        
+        return documentos;
+    }
     
     
 }
