@@ -27,8 +27,8 @@ public class DocumentoDAO {
         coll.insert(d.toJSON());
     }
     
-    public static List<Documento> buscarTodosPorUsuario(String login){
-        List<Documento> documentos = new ArrayList<Documento>();
+    public static List<Documento> buscarPorUsuario(String login){
+        List<Documento> documentos = new ArrayList<>();
         
         DB db = ConnectionFactory.create();
         DBCollection coll = db.getCollection("documentos");
@@ -40,6 +40,27 @@ public class DocumentoDAO {
         }
         return documentos;
         
+    }
+
+    public static Documento buscarPorNome(String nomeTexto) {
+        DB db = ConnectionFactory.create();
+        DBCollection coll = db.getCollection("documentos");
+        DBObject query = new BasicDBObject("nome", nomeTexto);
+        DBCursor resultado = coll.find(query);
+        
+        if (resultado.hasNext()){
+            return Documento.toObj(resultado.next());
+        }
+        
+        return null;
+    }
+
+    public static void removerPorNome(String nomeTexto) {
+        DB db = ConnectionFactory.create();
+        DBCollection coll = db.getCollection("documentos");
+        DBObject query = new BasicDBObject("nome", nomeTexto);
+        DBObject resultado = coll.findOne(query);
+        coll.remove(resultado);
     }
     
     

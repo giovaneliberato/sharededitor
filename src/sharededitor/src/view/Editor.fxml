@@ -16,16 +16,15 @@
     </VBox>
     <HBox prefHeight="30.0" prefWidth="793.0" AnchorPane.bottomAnchor="631.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
-        <VBox id="VBox" alignment="CENTER" spacing="5.0" HBox.hgrow="NEVER" />
         <MenuBar prefHeight="30.0" prefWidth="793.0" HBox.hgrow="SOMETIMES">
           <menus>
             <Menu mnemonicParsing="false" text="Arquivo">
               <items>
-                <MenuItem mnemonicParsing="false" text="Criar documento" />
+                <MenuItem mnemonicParsing="false" onAction="#criarNovoDocumento" text="Criar documento" />
                 <MenuItem mnemonicParsing="false" onAction="#salvarDocumento" text="Salvar documento" />
-                <MenuItem mnemonicParsing="false" text="Excluir documento" />
+                <MenuItem mnemonicParsing="false" onAction="#excluirDocumento" text="Excluir documento" />
                 <SeparatorMenuItem mnemonicParsing="false" />
-                <MenuItem mnemonicParsing="false" text="Sair" />
+                <MenuItem mnemonicParsing="false" onAction="#deslogar" text="Sair" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Compartilhar documento" />
