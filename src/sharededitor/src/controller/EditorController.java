@@ -91,6 +91,8 @@ public class EditorController implements Initializable{
         String nometexto = nome.getText();
         DocumentoDAO.removerPorNome(nometexto);
         inicializarTreeView();
+        nome.setText("");
+        editor.setHtmlText("");
     }
     
     @FXML
